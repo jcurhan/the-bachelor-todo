@@ -39,7 +39,13 @@ def get_contestant_name(data, occupation)
   name['name']
 end
 
+# SIMPLER WAY BELOW
 
+def get_contestant_name(data, occupation)
+ data.values.flatten.find do |contestant|
+   contestant.fetch('occupation') == occupation
+ end.fetch('name')
+end
 
 
 ############
